@@ -214,3 +214,22 @@ is_strong(145)
 # # wap to find happy number
 
 # 
+
+
+def squares(num):
+    total = 0
+    while num > 0:
+        digit = num % 10
+        total += digit * digit
+        num //= 10
+    return total
+def happy(num):
+    seen = set()
+    while num != 1 and num not in seen:
+        seen.add(num)
+        num = squares(num)
+    return num == 1
+print("Happy numbers between 1 and 130 are:")
+for i in range(1, 131):
+    if happy(i):
+        print(i, end=" ")
