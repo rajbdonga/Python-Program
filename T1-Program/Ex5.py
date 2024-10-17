@@ -216,20 +216,14 @@ is_strong(145)
 # 
 
 
-def squares(num):
-    total = 0
-    while num > 0:
-        digit = num % 10
-        total += digit * digit
-        num //= 10
-    return total
-def happy(num):
-    seen = set()
-    while num != 1 and num not in seen:
-        seen.add(num)
-        num = squares(num)
-    return num == 1
-print("Happy numbers between 1 and 130 are:")
-for i in range(1, 131):
-    if happy(i):
-        print(i, end=" ")
+for n in range(1 , 30):
+    res = n
+    while res != 1 and res != 4:
+        r = s = 0
+        while res > 0:
+            r = res % 10
+            s = s + r ** 2
+            res //= 10
+        res = s 
+    if res == 1:
+        print(n ,  end=" ")
